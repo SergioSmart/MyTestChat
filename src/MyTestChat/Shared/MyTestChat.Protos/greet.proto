@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "MyTestChat.Backend";
+option csharp_namespace = "MyTestChat.Protos";
 
 package greet;
 

@@ -15,7 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{97E734
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Desktop", "Desktop", "{B28D8DE8-F2F1-497C-AE32-3948996DFA3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTestChat.Backend", "Backend\MyTestChat.Backend\MyTestChat.Backend.csproj", "{6F00CF7A-596E-4376-953E-303312BBFE31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTestChat.Backend", "Backend\MyTestChat.Backend\MyTestChat.Backend.csproj", "{6F00CF7A-596E-4376-953E-303312BBFE31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTestChat.Protos", "Shared\MyTestChat.Protos\MyTestChat.Protos.csproj", "{21273E53-4D06-41D9-BD4E-4F73322F049A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{6F00CF7A-596E-4376-953E-303312BBFE31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F00CF7A-596E-4376-953E-303312BBFE31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F00CF7A-596E-4376-953E-303312BBFE31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21273E53-4D06-41D9-BD4E-4F73322F049A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21273E53-4D06-41D9-BD4E-4F73322F049A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21273E53-4D06-41D9-BD4E-4F73322F049A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21273E53-4D06-41D9-BD4E-4F73322F049A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +42,7 @@ Global
 		{97E73444-C54D-4F60-9897-6F800229B0CE} = {4462D466-396F-4106-A8CA-8B9A9FA7C59F}
 		{B28D8DE8-F2F1-497C-AE32-3948996DFA3D} = {4462D466-396F-4106-A8CA-8B9A9FA7C59F}
 		{6F00CF7A-596E-4376-953E-303312BBFE31} = {2879DAF7-969F-48A9-B6AB-44633AD726DA}
+		{21273E53-4D06-41D9-BD4E-4F73322F049A} = {09AA8162-1F42-47BC-868B-5447AB4044F1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {933C8734-624C-48B4-BC90-55A7EDCBA04B}
