@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32811.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{09AA8162-1F42-47BC-868B-5447AB4044F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{2879DAF7-969F-48A9-B6AB-44633AD726DA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{4462D466-396F-4106-A8CA-8B9A9FA7C59F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{D62957BA-0780-466F-A9EB-CCF3D92E780F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{97E73444-C54D-4F60-9897-6F800229B0CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Desktop", "Desktop", "{B28D8DE8-F2F1-497C-AE32-3948996DFA3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTestChat.Backend", "Backend\MyTestChat.Backend\MyTestChat.Backend.csproj", "{6F00CF7A-596E-4376-953E-303312BBFE31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F00CF7A-596E-4376-953E-303312BBFE31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F00CF7A-596E-4376-953E-303312BBFE31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F00CF7A-596E-4376-953E-303312BBFE31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F00CF7A-596E-4376-953E-303312BBFE31}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D62957BA-0780-466F-A9EB-CCF3D92E780F} = {4462D466-396F-4106-A8CA-8B9A9FA7C59F}
+		{97E73444-C54D-4F60-9897-6F800229B0CE} = {4462D466-396F-4106-A8CA-8B9A9FA7C59F}
+		{B28D8DE8-F2F1-497C-AE32-3948996DFA3D} = {4462D466-396F-4106-A8CA-8B9A9FA7C59F}
+		{6F00CF7A-596E-4376-953E-303312BBFE31} = {2879DAF7-969F-48A9-B6AB-44633AD726DA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {933C8734-624C-48B4-BC90-55A7EDCBA04B}
+	EndGlobalSection
+EndGlobal
