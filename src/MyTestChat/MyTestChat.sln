@@ -25,9 +25,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTestChat.Mobile.Android",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTestChat.Mobile.iOS", "Frontend\Mobile\MyTestChat.Mobile\MyTestChat.Mobile.iOS\MyTestChat.Mobile.iOS.csproj", "{DD025B5D-1B8B-41B5-9198-D9032986617B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTestChat.Mobile", "Frontend\Mobile\MyTestChat.Mobile\MyTestChat.Mobile\MyTestChat.Mobile.csproj", "{CBAE41A1-C21C-4E94-9D3F-9D4A0656331F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTestChat.Mobile", "Frontend\Mobile\MyTestChat.Mobile\MyTestChat.Mobile\MyTestChat.Mobile.csproj", "{CBAE41A1-C21C-4E94-9D3F-9D4A0656331F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTestChat.Web", "Frontend\Web\MyTestChat.Web\MyTestChat.Web.csproj", "{3749A686-9410-48CD-9456-A0CFB60D1373}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTestChat.Web", "Frontend\Web\MyTestChat.Web\MyTestChat.Web.csproj", "{3749A686-9410-48CD-9456-A0CFB60D1373}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

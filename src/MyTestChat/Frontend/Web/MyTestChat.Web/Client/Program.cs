@@ -1,5 +1,10 @@
+using Grpc.Core;
+using Grpc.Net.Client;
+using Grpc.Net.Client.Web;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using MyTestChat.Protos;
 using MyTestChat.Web;
 
 namespace MyTestChat.Web
@@ -13,6 +18,16 @@ namespace MyTestChat.Web
             builder.RootComponents.Add<HeadOutlet>("head::after");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddSingleton(services =>
+            {
+                string baseUri = services.GetRequiredService<NavigationManager>().BaseUri;
+                ChannelBase channel = GrpcChannel.ForAddress(baseUri,
+                    new GrpcChannelOptions
+                    {
+                        HttpHandler = new GrpcWebHandler(new HttpClientHandler())
+                    });
+                return new Greeter.GreeterClient(channel);
+            });
 
             await builder.Build().RunAsync();
         }
