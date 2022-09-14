@@ -3,15 +3,15 @@ using MyTestChat.Database.Models;
 
 namespace MyTestChat.Database
 {
-    public class ChatDataContext : DbContext
+    public class ChatDbContext : DbContext
     {
         public DbSet<ChatMessage> Messages { get; set; }
-        public ChatDataContext()
+        public ChatDbContext()
         {
 
         }
 
-        public ChatDataContext(DbContextOptions<ChatDataContext> options) : base(options)
+        public ChatDbContext(DbContextOptions<ChatDbContext> options) : base(options)
         {
 
         }

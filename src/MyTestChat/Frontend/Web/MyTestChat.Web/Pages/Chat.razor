@@ -2,7 +2,7 @@
 @using Grpc.Core
 @using MyTestChat.Protos
 
-@inject Greeter.GreeterClient GreeterClient
+@inject ChatRoom.ChatRoomClient ChatRoomClient
 @inject NavigationManager NavigationManager
 
 @implements IDisposable
@@ -13,8 +13,10 @@
             <ChatMessagesView Messages="_messages" />
         </div>  
         <div style="grid-row: 2">
-            <RadzenTextArea Placeholder="Enter here..." Style="margin-bottom: 20px; width: 100%"/>
-            <RadzenButton>Send</RadzenButton>
+            <RadzenTextArea @bind-Value="_message" 
+                            Placeholder="Enter here..." 
+                            Style="margin-bottom: 20px; width: 100%"/>
+            <RadzenButton Click="SendMessageAsync">Send</RadzenButton>
         </div>    
     </div>
 </div>
@@ -22,12 +24,13 @@
 @code
 {
     private readonly List<string> _messages = new List<string>();
-    private readonly CancellationTokenSource _cancelTokenSource = new CancellationTokenSource();  
+    private readonly CancellationTokenSource _cancelTokenSource = new CancellationTokenSource();
+    private string _message;
 
     protected override async Task OnInitializedAsync()
     {
         NavigationManager.LocationChanged += NavigationManagerOnLocationChanged;
-        var serverStream = GreeterClient.JoinChat(new HelloRequest(), cancellationToken: _cancelTokenSource.Token);
+        var serverStream = ChatRoomClient.JoinChat(new ChatRequest(), cancellationToken: _cancelTokenSource.Token);
         var stream = serverStream.ResponseStream;
 
         try
@@ -44,10 +47,21 @@
         } 
     }
 
+    private async Task SendMessageAsync()
+    {
+        if (string.IsNullOrEmpty(_message))
+            return;
+        await ChatRoomClient.SendAsync(new ChatMessage
+        {
+            Message = _message
+        });
+    }
+
     private void NavigationManagerOnLocationChanged(object sender, LocationChangedEventArgs e)
     {
         Dispose();
     }
+
     public void Dispose()
     {
         _cancelTokenSource.Cancel();
