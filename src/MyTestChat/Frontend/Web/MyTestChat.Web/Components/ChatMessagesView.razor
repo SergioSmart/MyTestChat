@@ -1,0 +1,12 @@
+﻿<div style="height: 100%">
+    @foreach (var message in Messages)
+    {
+        <h2>@message</h2>
+    }
+</div>
+
+
+@code {
+    [Parameter]
+    public List<string> Messages { get; set; }
+}
