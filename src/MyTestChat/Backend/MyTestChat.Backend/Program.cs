@@ -13,17 +13,22 @@ namespace MyTestChat.Backend
             var app = builder.Build();
             
             app.UseHttpsRedirection();
-
             app.UseBlazorFrameworkFiles();
-
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseGrpcWeb();
 
-            app.MapGrpcService<GreeterService>().EnableGrpcWeb();
-            app.MapFallbackToFile("index.html");
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapGrpcService<GreeterService>().EnableGrpcWeb();
+                endpoints.MapGrpcService<ChatRoomService>().EnableGrpcWeb();
+                                
+                endpoints.MapFallbackToFile("index.html");
+            });
+
+
+            
+            
             app.Run();
         }
     }

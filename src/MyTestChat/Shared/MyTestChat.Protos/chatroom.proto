@@ -1,0 +1,18 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "MyTestChat.Protos";
+
+package chat;
+
+service ChatRoom{
+	rpc JoinChat(ChatRequest) returns(stream ChatMessage);
+	rpc Send(ChatMessage) returns(ChatRequest);
+}
+
+message ChatRequest{
+
+}
+
+message ChatMessage{
+	string message = 1;
+}
