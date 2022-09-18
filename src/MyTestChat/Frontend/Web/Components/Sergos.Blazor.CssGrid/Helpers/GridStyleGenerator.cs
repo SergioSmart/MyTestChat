@@ -5,10 +5,8 @@ namespace Sergos.Blazor.CssGrid.Helpers
     internal class GridStyleGenerator
     {
         public static void GenerateStyle(ref string style, 
-                                         string columnDefinitions, 
-                                         string rowDefinitions,
-                                         string width,
-                                         string height)
+                                         string columnDefinitions, string rowDefinitions,
+                                         string width, string height)
         {
             style += "grid-template-columns:" + ReplaceStarToFr(columnDefinitions) + ";";
             style += "grid-template-rows:" + ReplaceStarToFr(rowDefinitions) + ";";

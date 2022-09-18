@@ -9,10 +9,10 @@
     public RenderFragment ChildContent { get; set; }
 
     [Parameter]
-    public string RowDefinitions { get; set; }
+    public string RowDefinitions { get; set; } = "*";
 
     [Parameter]
-    public string ColumnDefinitions { get; set; }
+    public string ColumnDefinitions { get; set; } = "*";
 
     [Parameter]
     public string Width { get; set; } = "100%";

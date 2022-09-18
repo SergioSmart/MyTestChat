@@ -1,9 +1,12 @@
 ﻿@inherits LayoutComponentBase
 
-<Grid RowDefinitions="* auto *" ColumnDefinitions="* auto *"
+<Grid style="background: azure" 
+      RowDefinitions="* auto *" 
+      ColumnDefinitions="* auto *"
       Width="100vw"
       Height="100vh">
-     <GridChild Height="100%" style="grid-column: 2; grid-row: 2;">
+     <GridChild Column="2"
+                Row="2">
          @Body
      </GridChild>
 </Grid>

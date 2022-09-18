@@ -26,6 +26,12 @@
     [Parameter]
     public int ColumnSpan { get; set; }
 
+    [Parameter]
+    public VerticalAlignment VerticalAlignment { get; set; }
+
+    [Parameter]
+    public HorizontalAlignment HorizontalAlignment { get; set; }
+
     [Parameter(CaptureUnmatchedValues = true)]
     public Dictionary<string, object> InputAttributes { get; set; }
 
@@ -49,7 +55,8 @@
         }
         if (!style.EndsWith(";"))
             style += ";";
-        GridChildGenerator.GenerateStyle(ref style, Width, Height); 
+        GridChildGenerator.GenerateStyle(ref style, Width, Height, Column, 
+            Row, ColumnSpan, RowSpan, VerticalAlignment, HorizontalAlignment);  
         if (InputAttributes.ContainsKey("style"))
             InputAttributes["style"] = style;
         else
