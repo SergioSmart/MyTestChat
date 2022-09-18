@@ -6,19 +6,42 @@ namespace MyTestChat.Backend.Services
 {
     public class ChatRoomService : ChatRoom.ChatRoomBase
     {
+        private readonly ChatRoomManager _chatRoomManager;
         private readonly ChatDbContext _chatDbContext;
+       
+        private List<IServerStreamWriter<ChatMessage>> _listeners = new List<IServerStreamWriter<ChatMessage>>();
 
-        public ChatRoomService(ChatDbContext chatDbContext)
+        public ChatRoomService(ChatRoomManager chatRoomManager)
         {
-            _chatDbContext = chatDbContext;
+            _chatRoomManager = chatRoomManager;
+            _chatRoomManager.MessageSended += ChatRoomService_MessageSended;
         }
+
         public override async Task JoinChat(ChatRequest request, 
             IServerStreamWriter<ChatMessage> responseStream, 
             ServerCallContext context)
         {
-            foreach (var chatMessage in _chatDbContext.Messages)
+            foreach (var chatMessage in _chatRoomManager.GetMessages())
             {
                 await responseStream.WriteAsync(new ChatMessage { Message = chatMessage.Message });
+            }
+            _listeners.Add(responseStream);
+            
+            while (!context.CancellationToken.IsCancellationRequested)
+            {
+                await Task.Delay(100);                              
+            }
+            _listeners.Remove(responseStream);
+        }
+
+        private void ChatRoomService_MessageSended(string message)
+        {
+            foreach (var streamWriter in _listeners)
+            {
+                streamWriter.WriteAsync(new ChatMessage
+                {
+                    Message = message
+                });
             }
         }
 
@@ -28,9 +51,9 @@ namespace MyTestChat.Backend.Services
             var chatMessage = new Database.Models.ChatMessage
             {
                 Message = request.Message
-            }; 
-            await _chatDbContext.Messages.AddAsync(chatMessage);
-            await _chatDbContext.SaveChangesAsync(); 
+            };
+
+            await _chatRoomManager.AddMessageAsync(chatMessage);           
 
             return new ChatRequest();
         }

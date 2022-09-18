@@ -10,8 +10,9 @@ namespace MyTestChat.Backend
         {
             var builder = WebApplication.CreateBuilder(args);           
             builder.Services.AddGrpc();
-            builder.Services.AddDbContext<ChatDbContext>(options => options.UseSqlite("Data Source = chat.db"));
-            
+            builder.Services.AddDbContext<ChatDbContext>(options => options.UseSqlite("Data Source = chat.db"), ServiceLifetime.Singleton);
+            builder.Services.AddSingleton<ChatRoomManager>();
+
             var app = builder.Build();          
             
             using (var scope = app.Services.CreateScope())

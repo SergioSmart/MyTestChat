@@ -35,7 +35,7 @@
 
         try
         {
-            await foreach (var message in stream.ReadAllAsync())
+            await foreach (var message in stream.ReadAllAsync(_cancelTokenSource.Token))
             {
                 _messages.Add(message.Message);
                 this.StateHasChanged();
@@ -43,18 +43,23 @@
         }
         catch (Exception e)
         {
-            _messages.Add(e.Message);
+            Console.WriteLine(e.Message);
         } 
+        finally
+        {
+            serverStream.Dispose();
+        }
     }
 
     private async Task SendMessageAsync()
-    {
+    {     
         if (string.IsNullOrEmpty(_message))
             return;
         await ChatRoomClient.SendAsync(new ChatMessage
         {
             Message = _message
         });
+        _message = "";
     }
 
     private void NavigationManagerOnLocationChanged(object sender, LocationChangedEventArgs e)
