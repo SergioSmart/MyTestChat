@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Shared\MyTestChat.Protos\MyTestChat.Protos.csproj" />
+    <ProjectReference Include="..\Components\Sergos.Blazor.CssGrid\Sergos.Blazor.CssGrid.csproj" />
   </ItemGroup>
 
 </Project>
